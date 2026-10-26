@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Nani's Hyderabad Dum Biryani | Rajajinagar, Bengaluru</title>
-<meta name="description" content="Authentic Hyderabadi and Guntur dum biryani in Rajajinagar, Bengaluru. Chicken, mutton and veg biryani under ₹149. Rated 4.4 on Google.">
+<meta name="description" content="Authentic Hyderabadi and Guntur dum biryani in Rajajinagar, Bengaluru. Chicken, mutton and veg biryani under ₹200. Rated 4.4 on Google.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -321,6 +321,52 @@ img,svg,iframe{max-width:100%}
  .dish:hover,.c:hover{transform:none}
  .panel:hover .ph,.dish:hover .im img{transform:none}
 }
+/* ======== MOBILE FIT FIXES (no sideways scroll, true centering) ======== */
+html{overflow-x:hidden;width:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-x:hidden;width:100%;max-width:100vw;position:relative}
+section,footer,header{max-width:100vw}
+section,footer{overflow-x:clip}
+.bandwrap{overflow:hidden;position:relative;z-index:5;margin-top:-18px;padding:18px 0}
+.band{margin:0 -4%;width:108%}
+.info small,.info b{overflow-wrap:anywhere}
+#intro{bottom:auto;height:100vh;height:100dvh}
+.introtxt{overflow-y:auto;overflow-x:hidden}
+
+@media(max-width:700px){
+ /* hero: centered and balanced */
+ .hero .wrap{text-align:center;display:flex;flex-direction:column;align-items:center}
+ .hero p{margin-left:auto;margin-right:auto}
+ .cta{justify-content:center;width:100%}
+ .hstats{justify-content:center;text-align:center;width:100%}
+ .hero h1{max-width:100%}
+
+ /* intro: clean centered stack, plates in corners only */
+ .introtxt{justify-content:center;padding:104px 16px 96px}
+ .plate{width:21vw;max-width:96px;border-width:2px;box-shadow:0 0 0 5px rgba(255,159,28,.12),0 14px 30px rgba(0,0,0,.6)}
+ .plate.p1{top:58px;left:16px;bottom:auto;right:auto}
+ .plate.p2{top:58px;right:16px;left:auto;bottom:auto}
+ .plate.p3{bottom:62px;left:16px;top:auto;right:auto}
+ .plate.p4{bottom:62px;right:16px;top:auto;left:auto}
+ .name{font-size:clamp(2.7rem,13.5vw,4.6rem);margin:10px 0 4px}
+ .name .w{margin:0 .08em}
+ .welcome{font-size:.7rem;letter-spacing:.4em}
+ .itag{font-size:1.05rem;max-width:300px}
+ .offers{max-width:340px;margin:18px auto 22px}
+ .offers b{font-size:.62rem;padding:6px 11px}
+ #enter{padding:14px 26px;font-size:.78rem}
+ .progt{display:none}
+ .prog{left:20vw;right:20vw;bottom:34px}
+}
+@media(max-width:380px){
+ .plate{width:19vw}
+ .name{font-size:clamp(2.4rem,13vw,3.6rem)}
+ .introtxt{padding:96px 12px 92px}
+}
+@media(max-width:700px) and (max-height:620px){
+ .plate.p3,.plate.p4{display:none}
+ .introtxt{padding:96px 14px 60px}
+}
+.fab{bottom:max(14px,env(safe-area-inset-bottom));right:max(14px,env(safe-area-inset-right))}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -351,7 +397,7 @@ img,svg,iframe{max-width:100%}
  <div class="introtxt">
   <div class="welcome">Welcome to</div>
   <h1 class="name" id="iname"></h1>
-  <p class="itag">Authentic Hyderabadi dum. Fiery Guntur style. Under ₹200.</p>
+  <p class="itag">Authentic Hyderabadi dum. Fiery Guntur style. Under ₹149.</p>
   <div class="offers"><b>Chicken Biryani</b><b>Mutton Biryani</b><b>Veg Biryani</b><b>Hot Takeaway</b></div>
   <button class="btn btn-saf" id="enter">Enter &amp; explore menu <svg class="ico"><use href="#i-arrow"/></svg></button>
  </div>
@@ -390,7 +436,7 @@ img,svg,iframe{max-width:100%}
  <div class="scroll">Scroll</div>
 </section>
 
-<div class="band"><div class="tr" id="band"></div></div>
+<div class="bandwrap"><div class="band"><div class="tr" id="band"></div></div></div>
 
 <section id="offer"><div class="wrap">
  <div class="center rv">
